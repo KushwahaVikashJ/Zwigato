@@ -31,7 +31,7 @@ const HomePage = () => {
             Order takeaway even faster!
           </span>
           <span>
-            Download the MernEats app for faster ordering and personalised
+            Download the Zwigato app for faster ordering and personalised
             recommendations
           </span>
           <img src={appDownloadImage} />
