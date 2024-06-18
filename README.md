@@ -1,6 +1,6 @@
-# Full-Stack MERN Restaurant Management Application
+# Full-Stack MERN Restaurant Management and Ordering Platform
 
-This is a comprehensive full-stack restaurant management application built using the MERN stack.
+This is a comprehensive full-stack restaurant management and ordering platform built using the MERN stack.
 
 ## Technologies Used:
 
