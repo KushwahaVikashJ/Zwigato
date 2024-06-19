@@ -65,7 +65,7 @@ const UserProfileForm = ({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSave)}
-        className="space-y-4 bg-gray-50 rounded-lg md:p-10"
+        className="space-y-4 bg-gray-50 rounded-lg md:p-10 container mx-auto flex-1 py-10"
       >
         <div>
           <h2 className="text-2xl font-bold">{title}</h2>
@@ -144,7 +144,7 @@ const UserProfileForm = ({
         {isLoading ? (
           <LoadingButton />
         ) : (
-          <Button type="submit" className="bg-orange-500">
+          <Button type="submit" className="bg-black">
             {buttonText}
           </Button>
         )}

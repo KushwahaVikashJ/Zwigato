@@ -1,40 +1,34 @@
-import landingImage from "../assets/landing.png";
-import appDownloadImage from "../assets/appDownload.png";
-import SearchBar, { SearchForm } from "@/components/SearchBar";
+import GoogleAddressSearch from "@/components/GoogleAddressSearch";
+import Hero from "@/components/Hero";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const navigate = useNavigate();
-
-  const handleSearchSubmit = (searchFormValues: SearchForm) => {
+  const [selectedAddress, setSelectedAddress] = useState<string | "">("");
+  const handleSearchSubmit = () => {
+    if (!selectedAddress) return;
     navigate({
-      pathname: `/search/${searchFormValues.searchQuery}`,
+      pathname: `/search/${selectedAddress}`,
     });
   };
 
   return (
-    <div className="flex flex-col gap-12">
-      <div className="md:px-32 bg-white rounded-lg shadow-md py-8 flex flex-col gap-5 text-center -mt-16">
-        <h1 className="text-5xl font-bold tracking-tight text-orange-600">
-          Tuck into a takeway today
+    <div className="relative">
+      <Hero />
+      <div className="absolute top-1/2 left-0 transform -translate-y-1/2 w-full px-4 sm:px-6 md:px-14 flex flex-col space-y-4 md:space-y-10 text-left">
+        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight">
+          Order delivery near you
         </h1>
-        <span className="text-xl">Food is just a click away!</span>
-        <SearchBar
-          placeHolder="Search by City or Town (for e.g Noida, Gurgaon, Bangalore, Pune :)"
-          onSubmit={handleSearchSubmit}
-        />
-      </div>
-      <div className="grid md:grid-cols-2 gap-5">
-        <img src={landingImage} />
-        <div className="flex flex-col justify-center gap-4 items-center text-center">
-          <span className="font-bold text-3xl tracking-tighter">
-            Order takeaway even faster!
-          </span>
-          <span>
-            Download the Zwigato app for faster ordering and personalised
-            recommendations
-          </span>
-          <img src={appDownloadImage} />
+        <div className="flex flex-col md:flex-row gap-3">
+          <GoogleAddressSearch setSelectedAddress={setSelectedAddress} />
+          <Button
+            className="w-auto h-auto font-medium text-base"
+            onClick={handleSearchSubmit}
+          >
+            Search here
+          </Button>
         </div>
       </div>
     </div>
