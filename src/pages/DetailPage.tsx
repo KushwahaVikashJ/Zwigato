@@ -1,6 +1,7 @@
 import { useCreateCheckoutSession } from "@/api/OrderApi";
 import { useGetRestaurant } from "@/api/RestaurantApi";
 import CheckoutButton from "@/components/CheckoutButton";
+import Loader from "@/components/Loader";
 import MenuItem from "@/components/MenuItem";
 import OrderSummary from "@/components/OrderSummary";
 import RestaurantInfo from "@/components/RestaurantInfo";
@@ -105,7 +106,7 @@ const DetailPage = () => {
   };
 
   if (isLoading || !restaurant) {
-    return "Loading...";
+    return <Loader />;
   }
 
   return (

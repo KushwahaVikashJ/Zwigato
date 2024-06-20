@@ -1,4 +1,5 @@
 import { useGetMyUser, useUpdateMyUser } from "@/api/MyUserApi";
+import Loader from "@/components/Loader";
 import UserProfileForm from "@/forms/user-profile-form/UserProfileForm";
 
 const UserProfilePage = () => {
@@ -6,11 +7,11 @@ const UserProfilePage = () => {
   const { currentUser, isLoading: isGetLoading } = useGetMyUser();
 
   if (isGetLoading) {
-    return <span>Loading...</span>;
+    return <Loader />;
   }
 
   if (!currentUser) {
-    return <span>Unable to load user profile</span>;
+    return <span className="m-5">Unable to load user profile</span>;
   }
 
   return (

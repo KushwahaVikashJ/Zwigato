@@ -30,7 +30,9 @@ const ManageRestaurantPage = () => {
           value="orders"
           className="space-y-5 bg-gray-50 p-10 rounded-lg"
         >
-          <h2 className="text-2xl font-bold">{orders?.length} active orders</h2>
+          <h2 className="text-2xl font-bold">
+            {!orders?.length ? "No" : orders?.length} active orders found
+          </h2>
           {orders?.map((order) => (
             <OrderItemCard order={order} />
           ))}
