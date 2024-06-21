@@ -13,13 +13,10 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="w-full max-h-[90vh] overflow-hidden relative">
-      {!imageLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-[#FFCB2A]" />
-      )}
+    <div className="relative w-full h-[90vh] bg-gray-200 flex items-center justify-center">
       <img
         src={hero}
-        className={`w-full object-cover transition-opacity duration-500 ${
+        className={`w-full h-full object-cover transition-opacity duration-500 ${
           imageLoaded ? "opacity-100" : "opacity-0"
         }`}
         alt="Hero"
