@@ -13,7 +13,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[90vh] bg-gray-200 flex items-center justify-center">
+    <div className="relative w-full h-[90vh] bg-[#FFC200] flex items-center justify-center">
       <img
         src={hero}
         className={`w-full h-full object-cover transition-opacity duration-500 ${
