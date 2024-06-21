@@ -24,7 +24,7 @@ const GoogleAddressSearch = ({
               input: (provided) => ({
                 ...provided,
                 width: "100%",
-                padding: "0.75rem 1rem",
+                padding: "0.75rem 0",
                 fontSize: "1rem",
                 border: "none",
                 boxShadow: "none",
