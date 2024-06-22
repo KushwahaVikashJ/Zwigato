@@ -1,6 +1,7 @@
 import { useSearchRestaurants } from "@/api/RestaurantApi";
 import CuisineFilter from "@/components/CuisineFilter";
 import Loader from "@/components/Loader";
+import NotServiceable from "@/components/NotServiceable";
 import PaginationSelector from "@/components/PaginationSelector";
 import SearchBar, { SearchForm } from "@/components/SearchBar";
 import SearchResultCard from "@/components/SearchResultCard";
@@ -73,7 +74,7 @@ const SearchPage = () => {
   }
 
   if (!results?.data || !city) {
-    return <span className="m-5">No results found</span>;
+    return <NotServiceable />;
   }
 
   return (
