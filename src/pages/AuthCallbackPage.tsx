@@ -1,14 +1,16 @@
 import { useCreateMyUser } from "@/api/MyUserApi";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const AuthCallbackPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user } = useAuth0();
   const { createUser } = useCreateMyUser();
 
   const hasCreatedUser = useRef(false);
+  const returnTo = location?.state ? location?.state?.appState?.returnTo : "/";
 
   useEffect(() => {
     if (user?.sub && user?.email && !hasCreatedUser.current) {
@@ -18,8 +20,8 @@ const AuthCallbackPage = () => {
       });
       hasCreatedUser.current = true;
     }
-    navigate("/");
-  }, [createUser, navigate, user]);
+    navigate(returnTo);
+  }, [createUser, navigate, user, returnTo]);
 
   return <>Loading...</>;
 };
