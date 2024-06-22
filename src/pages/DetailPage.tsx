@@ -128,22 +128,24 @@ const DetailPage = () => {
             />
           ))}
         </div>
-        <div>
-          <Card>
-            <OrderSummary
-              restaurant={restaurant}
-              cartItems={cartItems}
-              removeFromCart={removeFromCart}
-            />
-            <CardFooter>
-              <CheckoutButton
-                disabled={cartItems.length === 0}
-                onCheckout={onCheckout}
-                isLoading={isCheckoutLoading}
+        {cartItems?.length > 0 && (
+          <div>
+            <Card>
+              <OrderSummary
+                restaurant={restaurant}
+                cartItems={cartItems}
+                removeFromCart={removeFromCart}
               />
-            </CardFooter>
-          </Card>
-        </div>
+              <CardFooter>
+                <CheckoutButton
+                  disabled={cartItems.length === 0}
+                  onCheckout={onCheckout}
+                  isLoading={isCheckoutLoading}
+                />
+              </CardFooter>
+            </Card>
+          </div>
+        )}
       </div>
     </div>
   );
