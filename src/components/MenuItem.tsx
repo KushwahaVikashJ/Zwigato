@@ -1,4 +1,5 @@
 import { MenuItem } from "../types";
+import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 type Props = {
@@ -8,13 +9,18 @@ type Props = {
 
 const MenuItemCard = ({ menuItem, addToCart }: Props) => {
   return (
-    <Card className="cursor-pointer" onClick={addToCart}>
-      <CardHeader>
-        <CardTitle>{menuItem.name}</CardTitle>
-      </CardHeader>
-      <CardContent className="font-bold">
-        {(menuItem.price / 100).toFixed(2)}
-      </CardContent>
+    <Card className="flex flex-row items-center justify-between cursor-pointer">
+      <div>
+        <CardHeader>
+          <CardTitle>{menuItem.name}</CardTitle>
+        </CardHeader>
+        <CardContent className="font-bold">
+          {(menuItem.price / 100).toFixed(2)}
+        </CardContent>
+      </div>
+      <Button className="mr-5" onClick={addToCart}>
+        Add
+      </Button>
     </Card>
   );
 };
