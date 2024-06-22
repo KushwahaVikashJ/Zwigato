@@ -5,7 +5,7 @@ import { toast } from "sonner";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-export const useGetMyUser = () => {
+export const useGetMyUser = (isAuthenticated?: boolean) => {
   const { getAccessTokenSilently } = useAuth0();
   const getMyUserRequest = async (): Promise<User> => {
     const accessToken = await getAccessTokenSilently();
@@ -28,7 +28,9 @@ export const useGetMyUser = () => {
     data: currentUser,
     isLoading,
     error,
-  } = useQuery("fetchCurrentUser", getMyUserRequest);
+  } = useQuery("fetchCurrentUser", getMyUserRequest, {
+    enabled: isAuthenticated,
+  });
 
   if (error) {
     toast.error(error.toString());
