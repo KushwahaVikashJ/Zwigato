@@ -1,3 +1,4 @@
+import { useUpdateMyUser } from "@/api/MyUserApi";
 import { useCreateCheckoutSession } from "@/api/OrderApi";
 import { useGetRestaurant } from "@/api/RestaurantApi";
 import CheckoutButton from "@/components/CheckoutButton";
@@ -25,6 +26,7 @@ const DetailPage = () => {
   const { restaurant, isLoading } = useGetRestaurant(restaurantId);
   const { createCheckoutSession, isLoading: isCheckoutLoading } =
     useCreateCheckoutSession();
+  const { updateUser, isLoading: isUpdateLoading } = useUpdateMyUser();
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
     const storedCartItems = sessionStorage.getItem(`cartItems-${restaurantId}`);
     return storedCartItems ? JSON.parse(storedCartItems) : [];
@@ -84,7 +86,7 @@ const DetailPage = () => {
     if (!restaurant) {
       return;
     }
-
+    updateUser(userFormData);
     const checkoutData = {
       cartItems: cartItems.map((cartItem) => ({
         menuItemId: cartItem._id,
@@ -140,7 +142,7 @@ const DetailPage = () => {
                 <CheckoutButton
                   disabled={cartItems.length === 0}
                   onCheckout={onCheckout}
-                  isLoading={isCheckoutLoading}
+                  isLoading={isCheckoutLoading || isUpdateLoading}
                 />
               </CardFooter>
             </Card>
