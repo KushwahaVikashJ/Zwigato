@@ -1,47 +1,27 @@
-# Full-Stack MERN Restaurant Management and Ordering Platform
+# Zwigato
 
-This is a comprehensive full-stack restaurant management and ordering platform built using the MERN stack.
+![Zwigato Landing Page](public/cover.png)
 
-## Technologies Used:
+## About the Project
 
-- **Backend:**
-  - Node.js
-  - Express.js
-  - MongoDB
-  - Repo for backend: https://github.com/KushwahaVikashJ/food-ordering-app-backend
-- **Frontend:**
-  - React.js
-  - React Router
-- **Authentication:**
-  - Auth0
-- **Deployment:**
-  - Render
-- **Image Upload:**
-  - Cloudinary
-- **Payments:**
-  - Stripe
+Zwigato is a comprehensive food delivery platform designed to streamline the process of discovering and ordering food from local restaurants.
 
-## Features:
+## Tech Stack
 
-- **User Authentication:**
-  - Sign up and login with Auth0
-  - Protect routes based on user authentication
-  - Manage authenticated user links
-- **User Profile:**
-  - Create and update user profile
-  - Fetch and pre-populate user profile data
-  - Toast notifications for actions
-- **Restaurant Management:**
-  - Create and manage restaurant profiles
-  - Upload and handle restaurant images with Cloudinary
-  - Fetch and update restaurant details
-- **Search and Filters:**
-  - Implement search functionality
-  - Filter results based on various criteria (e.g., cuisine, sort options)
-  - Pagination for search results
-- **Cart and Orders:**
-  - Add and remove items from the cart
-  - Checkout and confirm delivery details
-  - Manage and track orders
-  - Handle payments with Stripe
-  - Poll order status and update in real-time
+- **Authentication**: Auth0
+- **Frontend**: React, TypeScript, Tailwind CSS, Shadcn
+- **Backend**: Node.js, Express, Mongodb
+- **Payment Gateway**: Stripe
+- **Location Search**: Google Places Autocomplete
+
+## Features
+
+- **Location-Based Search**: Users start by entering their location to view and explore nearby restaurants.
+- **Menu Browsing and Selection**: Users can use search and filter options to find desired cuisines or specific restaurants. They can browse the menu, select items, and add them to the cart.
+- **Checkout and Payment**: If not already logged in, users are prompted to log in during checkout. They input their delivery address and proceed to the payment portal, completing the payment through Stripe.
+- **Order Confirmation and Tracking**: Post-payment, users receive order confirmation. They can track their order status and view past orders via the top header.
+- **Restaurant Management**: Restaurant managers can log in to update order statuses and manage their restaurant details. They can add menus and set delivery charges to maintain an up-to-date restaurant listing.
+
+## Live Demo
+
+Check out the live demo: [Zwigato](https://food-ordering-app-frontend-7n46.onrender.com/)
